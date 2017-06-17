@@ -1,11 +1,5 @@
 #lang racket/base
 
-#|
-How to run:
-install postgres, create an empty database called md5,
-change the user and the password in the c definition then run
-|#
-
 (require web-server/servlet
          web-server/servlet-env
          db
