@@ -3,7 +3,7 @@
 (require web-server/servlet
          web-server/servlet-env
          db
-         "../md5/md5.rkt")
+         "../racket-md5/md5.rkt")
 
 ;;DATABASE
 (define c
