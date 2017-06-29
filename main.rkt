@@ -115,7 +115,25 @@ PRIMARY KEY (input, hash))")
       (form ((action "reverse"))
             (h3 "reverse")
             (input ((type "text") (name "input")))
-            (input ((type "submit"))))))))
+            (input ((type "submit"))))
+      (div
+       (h4 "What is this?")
+       (p "This is a website that allow you to calculate the md5sum
+	  of any given utf-8 string. Every string you calculate is inserted
+	  into the database, so you can try to reverse some hash you
+	  pleviously inserted.
+	  Please Keep in mind that it is impossible to reverse an hash
+	  if nobody inserted it in the database")
+       (h4 "This is Free Software")
+       (p "The source code of "
+	  (a ((href "https://github.com/CastixGitHub/racket-md5-website.git"))
+	     "this website")
+	  " and of "
+	  (a ((href "https://github.com/CastixGitHub/racket-md5.git"))
+	     "my own implementation of the md5 algorithm")
+	  " are on GitHub and are licensed under the terms of GNU GPLv3. Racket
+          is licensed under the terms of GNU LGPLv3."
+	  ))))))
 
 
 (define (404-response req)
