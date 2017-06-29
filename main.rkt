@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 
 #|
 Racket-md5-website
@@ -81,6 +81,7 @@ PRIMARY KEY (input, hash))")
       (define input (extract-from-request 'input req))
       (printf "finding reverse of: ~a\n" input)
       (define out (db-reverse-md5 input))
+      (when (empty? out) (set! out (list "not found")))
       (render-home #:reversed out)))))
 
 
@@ -95,10 +96,10 @@ PRIMARY KEY (input, hash))")
   (response/xexpr
    `(html
      (head
-      (title "MD5 Castiglia Vincenzo")
+      (title "Racket MD5")
       (link ((rel "stylesheet") (href "/main.css"))))
      (body
-      (h1 "homepage")
+      (h1 "Racket MD5")
 
       ,(if calculated
            `(span "calculated: " ,calculated) "")
@@ -108,12 +109,12 @@ PRIMARY KEY (input, hash))")
       
       (form ((action "calculate"))
             (h3 "calculate")
-            (input ((name "input")))
+            (input ((type "text") (name "input")))
             (input ((type "submit"))))
       
       (form ((action "reverse"))
             (h3 "reverse")
-            (input ((name "input")))
+            (input ((type "text") (name "input")))
             (input ((type "submit"))))))))
 
 
